@@ -1,0 +1,295 @@
+name: GravityFlux
+main: world.bentobox.gravityflux.GravityFlux
+version: ${version}${build.number}
+api-version: 3.2.4
+metrics: true
+icon: "OAK_SAPLING"
+repository: "BentoBoxWorld/GravityFlux"
+
+authors: tastybento
+
+permissions:
+# Non-command permissions
+  gravityflux.island.lock:
+    description: Allows island locking in settings
+    default: true
+  gravityflux.settings.*:
+    description: Allow use of settings on island
+    default: true
+  gravityflux.mod.clearreset:
+    description: Allow clearing of island reset limit
+    default: false
+  gravityflux.mod.bypasscooldowns:
+    description: Allow moderator to bypass cooldowns
+    default: op
+  gravityflux.mod.bypassdelays:
+    description: Allow moderator to bypass delays
+    default: op
+  gravityflux.mod.bypassprotect:
+    description: Allow moderator to bypass island protection
+    default: op
+  gravityflux.mod.bypassexpel:
+    description: Allow moderator to bypass island expulsion
+    default: op
+  gravityflux.mod.lock:
+    description: Allows lock or unlock of an island
+    default: op
+  gravityflux.mod.bypasslock:
+    description: Bypasses an island lock
+    default: op
+  gravityflux.mod.bypassban:
+    description: Bypasses island ban
+    default: op
+  gravityflux.admin.noban:
+    description: Player cannot be banned from an island
+    default: op
+  gravityflux.admin.noexpel:
+    description: Player cannot be expelled from an island
+    default: op
+  # Command permissions
+  gravityflux.island:
+    description: Allow use of '/island' command - the main island command
+    default: TRUE
+  gravityflux.island.home:
+    description: Allow use of '/island go' command - teleport you to your island
+    default: TRUE
+  gravityflux.island.spawn:
+    description: Allow use of '/island spawn' command - teleport you to the spawn
+    default: TRUE
+  gravityflux.island.create:
+    description: Allow use of '/island create' command - create an island, using optional blueprint (requires permission)
+    default: TRUE
+  gravityflux.island.reset:
+    description: Allow use of '/island reset' command - restart your island and remove the old one
+    default: TRUE
+  gravityflux.island.info:
+    description: Allow use of '/island info' command - display info about your island or the player's island
+    default: TRUE
+  gravityflux.island.settings:
+    description: Allow use of '/island settings' command - display island settings
+    default: TRUE
+  gravityflux.island.name:
+    description: Allow use of '/island setname' or '/island resetname' command - your island name
+    default: TRUE
+  gravityflux.island.language:
+    description: Allow use of '/island language' command - select language
+    default: TRUE
+  gravityflux.island.ban:
+    description: Allow use of '/island ban' or '/island unban' or '/island banlist' command - banned players
+    default: TRUE
+  gravityflux.island.expel:
+    description: Allow use of '/island expel' command - expel a player from your island
+    default: TRUE
+  gravityflux.island.near:
+    description: Allow use of '/island near' command - show the name of neighboring islands around you
+    default: TRUE
+  gravityflux.island.team:
+    description: Allow use of '/island team' command - manage your team
+    default: TRUE
+  gravityflux.island.team.invite:
+    description: Allow use of '/island team invite' command - invite a player to join your island
+    default: TRUE
+  gravityflux.island.team.leave:
+    description: Allow use of '/island team leave' command - leave your island
+    default: TRUE
+  gravityflux.island.team.setowner:
+    description: Allow use of '/island team setowner' command - transfer your island ownership to a member
+    default: TRUE
+  gravityflux.island.team.kick:
+    description: Allow use of '/island team kick' command - remove a member from your island
+    default: TRUE
+  gravityflux.island.team.accept:
+    description: Allow use of '/island team accept' command - accept an invitation
+    default: TRUE
+  gravityflux.island.team.reject:
+    description: Allow use of '/island team reject' command - reject an invitation
+    default: TRUE
+  gravityflux.island.team.coop:
+    description: Allow use of '/island team coop' or '/island team uncoop' command - coop rank from player
+    default: TRUE
+  gravityflux.island.team.trust:
+    description: Allow use of '/island team trust' or '/island team untrust' command - trusted player rank for player
+    default: TRUE
+  gravityflux.island.team.promote:
+    description: Allow use of '/island team promote' or '/island team demote' command - move a player's rank on your island
+    default: TRUE
+  gravityflux.island.sethome:
+    description: Allow use of '/island sethome' command - set your home teleport point
+    default: TRUE
+  gravityflux.island.deletehome:
+    description: Allow use of '/island deletehome' command - delete a home location
+    default: OP
+  gravityflux.island.renamehome:
+    description: Allow use of '/island renamehome' command - rename a home location
+    default: OP
+  gravityflux.island.homes:
+    description: Allow use of '/island homes' command - list your homes
+    default: TRUE
+  gravityflux.admin:
+    description: Allow use of '/bsbadmin' command - admin command
+    default: OP
+  gravityflux.admin.version:
+    description: Allow use of '/bsbadmin version' command - display BentoBox and addons versions
+    default: OP
+  gravityflux.admin.tp:
+    description: Allow use of '/bsbadmin tp/tpnether/tpend' command - teleport to a player's island
+    default: OP
+  gravityflux.admin.getrank:
+    description: Allow use of '/bsbadmin getrank' command - get a player's rank on their island or the island of the owner
+    default: OP
+  gravityflux.admin.setrank:
+    description: Allow use of '/bsbadmin setrank' command - set a player's rank on their island or the island of the owner
+    default: OP
+  gravityflux.mod.info:
+    description: Allow use of '/bsbadmin info' command - get info on where you are or player's island
+    default: OP
+  gravityflux.mod.team:
+    description: Allow use of '/bsbadmin team' command - manage teams
+    default: FALSE
+  gravityflux.mod.team.add:
+    description: Allow use of '/bsbadmin team add' command - add player to owner's team
+    default: OP
+  gravityflux.mod.team.disband:
+    description: Allow use of '/bsbadmin team disband' command - disband owner's team
+    default: OP
+  gravityflux.mod.team.fix:
+    description: Allow use of '/bsbadmin team fix' command - scans and fixes cross island membership in database
+    default: OP
+  gravityflux.mod.team.kick:
+    description: Allow use of '/bsbadmin team kick' command - kick a player from a team
+    default: OP
+  gravityflux.mod.team.setowner:
+    description: Allow use of '/bsbadmin team setowner' command - transfers island ownership to the player
+    default: OP
+  gravityflux.admin.blueprint:
+    description: Allow use of '/bsbadmin blueprint' command - manipulate blueprints
+    default: OP
+  gravityflux.admin.blueprint.load:
+    description: Allow use of '/bsbadmin blueprint load' command - load blueprint into the clipboard
+    default: OP
+  gravityflux.admin.blueprint.paste:
+    description: Allow use of '/bsbadmin blueprint paste' command - paste the clipboard to your location
+    default: OP
+  gravityflux.admin.blueprint.origin:
+    description: Allow use of '/bsbadmin blueprint origin' command - set the blueprint's origin to your position
+    default: OP
+  gravityflux.admin.blueprint.copy:
+    description: Allow use of '/bsbadmin blueprint copy' command - copy the clipboard set by pos1 and pos2 and optionally the air blocks
+    default: OP
+  gravityflux.admin.blueprint.save:
+    description: Allow use of '/bsbadmin blueprint save' command - save the copied clipboard
+    default: OP
+  gravityflux.admin.blueprint.rename:
+    description: Allow use of '/bsbadmin blueprint rename' command - rename a blueprint
+    default: OP
+  gravityflux.admin.blueprint.delete:
+    description: Allow use of '/bsbadmin blueprint delete' command - delete the blueprint
+    default: OP
+  gravityflux.admin.blueprint.pos1:
+    description: Allow use of '/bsbadmin blueprint pos1' command - set 1st corner of cuboid clipboard
+    default: OP
+  gravityflux.admin.blueprint.pos2:
+    description: Allow use of '/bsbadmin blueprint pos2' command - set 2nd corner of cuboid clipboard
+    default: OP
+  gravityflux.admin.blueprint.list:
+    description: Allow use of '/bsbadmin blueprint list' command - list available blueprints
+    default: OP
+  gravityflux.admin.register:
+    description: Allow use of '/bsbadmin register' command - register player to unowned island you are on
+    default: OP
+  gravityflux.admin.unregister:
+    description: Allow use of '/bsbadmin unregister' command - unregister owner from island, but keep island blocks
+    default: OP
+  gravityflux.admin.range:
+    description: Allow use of '/bsbadmin range' command - admin island range command
+    default: OP
+  gravityflux.admin.range.display:
+    description: Allow use of '/bsbadmin range display' command - show/hide island range indicators
+    default: OP
+  gravityflux.admin.range.set:
+    description: Allow use of '/bsbadmin range set' command - sets the island protected range
+    default: OP
+  gravityflux.admin.range.reset:
+    description: Allow use of '/bsbadmin range reset' command - resets the island protected range to the world default
+    default: OP
+  gravityflux.admin.range.add:
+    description: Allow use of '/bsbadmin range add' command - increases the island protected range
+    default: OP
+  gravityflux.admin.range.remove:
+    description: Allow use of '/bsbadmin range remove' command - decreases the island protected range
+    default: OP
+  gravityflux.admin.resets:
+    description: Allow use of '/bsbadmin resets' command - edit player reset values
+    default: OP
+  gravityflux.admin.resets.set:
+    description: Allow use of '/bsbadmin resets set' command - sets how many times this player has reset his island
+    default: OP
+  gravityflux.admin.resets.add:
+    description: Allow use of '/bsbadmin resets add' command - adds this player's island reset count
+    default: OP
+  gravityflux.admin.resets.remove:
+    description: Allow use of '/bsbadmin resets remove' command - reduces the player's island reset count
+    default: OP
+  gravityflux.admin.delete:
+    description: Allow use of '/bsbadmin delete' command - deletes a player's island
+    default: OP
+  gravityflux.admin.why:
+    description: Allow use of '/bsbadmin why' command - toggle console protection debug reporting
+    default: OP
+  gravityflux.admin.deaths:
+    description: Allow use of '/bsbadmin deaths' command - edit deaths of players
+    default: OP
+  gravityflux.admin.deaths.reset:
+    description: Allow use of '/bsbadmin deaths reset' command - resets deaths of the player
+    default: OP
+  gravityflux.admin.deaths.set:
+    description: Allow use of '/bsbadmin deaths set' command - sets deaths of the player
+    default: OP
+  gravityflux.admin.deaths.add:
+    description: Allow use of '/bsbadmin deaths add' command - adds deaths to the player
+    default: OP
+  gravityflux.admin.deaths.remove:
+    description: Allow use of '/bsbadmin deaths remove' command - removes deaths to the player
+    default: OP
+  gravityflux.admin.reload:
+    description: Allow use of '/bsbadmin reload' command - reload
+    default: OP
+  gravityflux.admin.setspawn:
+    description: Allow use of '/bsbadmin setspawn' command - set an island as spawn for this gamemode
+    default: OP
+  gravityflux.admin.setspawnpoint:
+    description: Allow use of '/bsbadmin setspawnpoint' command - set current location as spawn point for this island
+    default: OP
+  gravityflux.admin.resetflags:
+    description: Allow use of '/bsbadmin resetflags' command - Reset all islands to default flag settings in config.yml
+    default: OP
+  gravityflux.mod.switch:
+    description: Allow use of '/bsbadmin switch' command - switch on/off protection bypass
+    default: OP
+  gravityflux.admin.purge:
+    description: Allow use of '/bsbadmin purge' command - purge islands abandoned for more than [days]
+    default: OP
+  gravityflux.admin.purge.status:
+    description: Allow use of '/bsbadmin purge status' command - displays the status of the purge
+    default: OP
+  gravityflux.admin.purge.stop:
+    description: Allow use of '/bsbadmin purge stop' command - stop a purge in progress
+    default: OP
+  gravityflux.admin.purge.unowned:
+    description: Allow use of '/bsbadmin purge unowned' command - purge unowned islands
+    default: OP
+  gravityflux.admin.purge.protect:
+    description: Allow use of '/bsbadmin purge protect' command - toggle island purge protection
+    default: OP
+  gravityflux.admin.settings:
+    description: Allow use of '/bsbadmin settings' command - open settings GUI or set settings
+    default: OP
+  gravityflux.admin.setprotectionlocation:
+    description: Allow use of '/bsbadmin setprotectionlocation' command - set current location or [x y z] as center of island's protection area
+    default: OP
+  gravityflux.mod.deletehomes:
+    description: Allow use of '/bsbadmin deletehomes' command - deletes all named homes from an island
+    default: OP
+  gravityflux.mod.resetname:
+    description: Allow use of '/bsbadmin resetname' command - reset player island name
+    default: OP

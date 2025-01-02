@@ -1,0 +1,9 @@
+name: BentoBox-GravityFlux
+main: world.bentobox.gravityflux.GravityFluxPladdon
+version: ${project.version}${build.number}
+api-version: "1.21.4"
+
+authors: [tastybento]
+contributors: ["The BentoBoxWorld Community"]
+website: https://bentobox.world
+description: ${project.description}
