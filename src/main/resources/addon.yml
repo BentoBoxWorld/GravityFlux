@@ -1,7 +1,7 @@
 name: GravityFlux
 main: world.bentobox.gravityflux.GravityFlux
 version: ${version}${build.number}
-api-version: 3.2.4
+api-version: 3.2.3
 metrics: true
 icon: "OAK_SAPLING"
 repository: "BentoBoxWorld/GravityFlux"
