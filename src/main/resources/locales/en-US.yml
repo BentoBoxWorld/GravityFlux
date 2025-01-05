@@ -4,9 +4,7 @@
 ###########################################################################################
 
 gravityflux:
-  sign:
-    line0: ""
-    line1: "Welcome!"
-    line2: "[name]"
-    line3: "Do not fall! &c<3"
-    
+    admin:
+        flux:
+            description: Make a flux storm happen in world
+            ending: Ending the storm
